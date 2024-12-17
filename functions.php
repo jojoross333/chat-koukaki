@@ -14,3 +14,9 @@ if ( get_stylesheet() !== get_template() ) {
         return get_option( 'theme_mods_' . get_template(), $default );
     } );
 }
+
+// Enqueue les styles et scripts du thème enfant
+function theme_enfant_enqueue_scripts() {
+    // Charger le style du thème enfant
+    wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/saas/style.css', array('parent-style'));
+}
