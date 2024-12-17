@@ -1,0 +1,8 @@
+/* MEDIA QUERIES POUR MOBILE */
+
+@media (max-width: 768px) {      /* supprime les fleus du footer en mobile */
+    .nomination::before,
+    .nomination::after {
+      display: none;
+    }
+  }

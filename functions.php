@@ -15,8 +15,13 @@ if ( get_stylesheet() !== get_template() ) {
     } );
 }
 
-// Enqueue les styles et scripts du thème enfant
+// CHARGEMENT STYLES ET SCRIPTS THEME ENFANT
 function theme_enfant_enqueue_scripts() {
-    // Charger le style du thème enfant
-    wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/saas/style.css', array('parent-style'));
+    // Charge le style du thème enfant
+    wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/sass/style.css', array('parent-style'));
+    
+    // Charge le script du thème enfant
+    wp_enqueue_script('child-script', get_stylesheet_directory_uri() . '/js/scripts.js', array(), null, true);
 }
+add_action('wp_enqueue_scripts', 'theme_enfant_enqueue_scripts');
+

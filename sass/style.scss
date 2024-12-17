@@ -1,0 +1,100 @@
+// Importation des mixins
+@import 'mixins';
+
+/*ETAPE 1 _______________________________________________________________________________________________________*/
+
+/* -----FADE-IN DES SECTIONS/BANNER/LOGO----- */
+/* ----KEYFRAME animation créer dans mixins a chaque élement(animationName) @include---- */
+.banner img {
+  @include fadeInWithTransform(200px, 1.5s, 0s, "fadeInLogo");      /*_______effet depuis le bas*/
+}
+
+.banner {
+  @include fadeInWithTransform(-200px, 1.5s, 0s, "fadeInBanner");   /*_______effet vers du haut en bas -200px*/
+}
+
+.section-fade-in {
+  @include fadeInWithTransform(200px, 1.5s, 0s, "fadeInSection");
+}
+/*----apparition une a une sans scroll au chargement du site---- */
+#story.section-fade-in {
+  @include fadeInWithTransform(200px, 1.5s, 1.2s, "fadeInStory");    /*_______section story*/
+}
+
+#place.section-fade-in {
+  @include fadeInWithTransform(200px, 1.5s, 3.1s, "fadeInPlace");    /*_______section place*/
+}
+
+#studio.section-fade-in {
+  @include fadeInWithTransform(200px, 1.5s, 4.1s, "fadeInStudio");   /*________section studio*/
+}
+
+/* -----FLEURS QUI TOURNE---- */
+
+.story__article::after, .story h2::after, #studio h2::before, #studio h2::after, .site-footer::before, .site-footer::after, .site-footer ul::after, .nomination::before, .nomination::after {
+  animation: rotation 10s infinite linear;
+}
+
+@keyframes rotation {  
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+/* ----AJOUT DE LA SECTIONS NOMINATIONS---- */
+
+.nomination {                  /*_______place la section centré avec des marges */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  padding: 80px;
+}
+
+.site-footer {         /*_______retire les fleurs du footer*/
+  &::before,
+  &::after {
+      display: none;
+  }
+}
+
+.nomination::before {
+  content: url("../assets/images/Sunflower.png");
+  position: absolute;
+  top: -1em;
+  left: 8em; /*_______em pour un espacement basé sur la taille de la police du parent*/
+}
+
+.nomination::after {
+  content: url("../assets/images/orchid.png");
+  position: absolute;
+  right: -4em;
+  top: -4em;
+}
+
+/* ----APPARITION DES TITRES AU SCROLL + DELAY SUR STUDIO KOUKAKI */
+
+.appear {
+  opacity: 0;
+  transform: translateY(70px); /*________ Déplacement vers le bas */
+  transition-duration: 2s;
+  display: inline-block; /* ________Les spans restent en ligne mais peuvent être animés */
+  white-space: nowrap; /* __________Éviter les espacements supplémentaires entre les mots */
+}
+
+.first-word {
+  transition-delay: 0s; /* ________Pas de délai d'apparition*/
+}
+
+.second-word {
+  transition-delay: 0.5s; /*_____délai apparition via intersection dans js */
+}
+
+.visible { /* élément visible */
+  opacity: 1;
+  transform: translateY(0);    /*ok*/
+}
+

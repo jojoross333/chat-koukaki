@@ -1,0 +1,17 @@
+// Mixin pour le logo, banner, et sections pour simplifier le css
+@mixin fadeInWithTransform($translateY: 0, $duration: 1.5s, $delay: 0s, $animationName: 'fadeInAnimation') {
+    opacity: 0;
+    animation: #{$animationName} $duration ease-out $delay forwards;
+  
+    @keyframes #{$animationName} {
+      0% {
+        opacity: 0;
+        transform: translateY($translateY);  /*effet translateY fade*/
+      }
+      100% {
+        opacity: 1;                       /*apparition avec opacity*/
+        transform: translateY(0);         /*reveint a l'origine*/
+      }
+    }
+  }
+  
