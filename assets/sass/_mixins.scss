@@ -1,0 +1,51 @@
+// Mixin pour le logo, banner, et sections pour simplifier le css
+@mixin fadeInWithTransform($translateY: 0, $duration: 1.5s, $delay: 0s, $animationName: 'fadeInAnimation') {
+  opacity: 0;
+  animation: #{$animationName} $duration ease-out $delay forwards;
+
+  @keyframes #{$animationName} {
+    0% {
+      opacity: 0;
+      transform: translateY($translateY);  /*effet translateY fade*/
+    }
+    100% {
+      opacity: 1;                       /*apparition avec opacity*/
+      transform: translateY(0);         /*reveint a l'origine*/
+    }
+  }
+}
+
+/* float pour les chat burger */
+
+@mixin float($duration: 1s, $distance: 10px) {
+  animation: float $duration ease-in-out infinite;
+
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-$distance); /* Monte légèrement */
+    }
+    100% {
+      transform: translateY(0); /* Revient à la position initiale */
+    }
+  }
+}
+
+/* rotate des fleurs burger */
+
+@mixin rotate($duration: 3s) {
+  animation: rotate $duration linear infinite;
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg); /* Tourne complètement */
+    }
+  }
+}
+
+

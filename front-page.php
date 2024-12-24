@@ -15,16 +15,20 @@ get_header();
             <article id="" class="story__article">
                 <p><?php echo get_theme_mod('story'); ?></p>
             </article>
-            <!-- SWIPER -->
+            <!-- SECTION SWIPER -->
             <?php get_template_part('/template-parts/swiper'); ?>
-            <!-- SWIPER FIN -->
-            <article id="place" class="section-fade-in">
+            <!-- FIN SECTION SWIPER -->
+            <!-- SECTION DES NUAGES -->
+            <article class="section-nuage" id="place" class="section-fade-in">
                 <div>
                     <h3>Le Lieu</h3>
                     <p><?php echo get_theme_mod('place'); ?></p>
+                    <img class="big_cloud" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/big_cloud.png'; ?>" alt="grand nuage">
+                    <img class="little_cloud" src="<?php echo get_stylesheet_directory_uri() . '/assets/images/little_cloud.png'; ?>" alt="petit nuage"> 
                 </div>
 
             </article>
+            <!-- FIN SECTION DES NUAGES -->
         </section>
 
 

@@ -18,20 +18,20 @@ if ( get_stylesheet() !== get_template() ) {
 // CHARGEMENT STYLES ET SCRIPTS THEME ENFANT
 function theme_enfant_enqueue_scripts() {
     // Charge le style du thème enfant
-    wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/sass/style.css', array('parent-style'));
+    wp_enqueue_style('child-style', get_stylesheet_directory_uri() . '/assets/sass/style.css', array('parent-style'));
     
     // Charge le script du thème enfant
-    wp_enqueue_script('child-script', get_stylesheet_directory_uri() . '/js/scripts.js', array(), null, true);
+    wp_enqueue_script('child-script', get_stylesheet_directory_uri() . '/assets/js/scripts.js', array(), null, true);
 
     // charge localement swiper
-    wp_enqueue_script('swiper-script', get_stylesheet_directory_uri() . '/js/swiper-bundle.min.js', array('jquery'), null, true);
-    wp_enqueue_style('swiper-style', get_stylesheet_directory_uri() . '/sass/swiper-bundle.min.css');
+    wp_enqueue_script('swiper-script', get_stylesheet_directory_uri() . '/assets/js/swiper-bundle.min.js', array('jquery'), null, true);
+    wp_enqueue_style('swiper-style', get_stylesheet_directory_uri() . '/assets/sass/swiper-bundle.min.css');
 
     // Charger Skrollr en local
-    wp_enqueue_script('skrollr', get_stylesheet_directory_uri() . '/js/skrollr.min.js', array(), null, true);
+    wp_enqueue_script('skrollr', get_stylesheet_directory_uri() . '/assets/js/skrollr.min.js', array(), null, true);
     
     // Charger le fichier JavaScript personnalisé pour initialiser Skrollr
-    wp_enqueue_script('parallax-init', get_stylesheet_directory_uri() . '/js/parallax-init.js', array('skrollr', 'jquery'), null, true);
+    wp_enqueue_script('parallax-init', get_stylesheet_directory_uri() . '/assets/js/parallax-init.js', array('skrollr', 'jquery'), null, true);
 
 }
 add_action('wp_enqueue_scripts', 'theme_enfant_enqueue_scripts');

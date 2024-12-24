@@ -1,6 +1,6 @@
 /* MEDIA QUERIES POUR MOBILE */
 
-@media (max-width: 700px) { 
+@media (max-width: 768px) { 
   /* Supprimer les fleurs du footer en mobile */
   .nomination::before,
   .nomination::after {
@@ -16,6 +16,12 @@
 
   .background-video {
       display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .nomination-img {
+    width: 100em; /* Ajuste la largeur pour les écrans mobiles */
   }
 }
 
