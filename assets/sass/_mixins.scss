@@ -15,7 +15,7 @@
   }
 }
 
-/* float pour les chat burger */
+/* float pour les chats menu burger */
 
 @mixin float($duration: 1s, $distance: 10px) {
   animation: float $duration ease-in-out infinite;
@@ -33,7 +33,7 @@
   }
 }
 
-/* rotate des fleurs burger */
+/* rotate des fleurs menu burger */
 
 @mixin rotate($duration: 3s) {
   animation: rotate $duration linear infinite;

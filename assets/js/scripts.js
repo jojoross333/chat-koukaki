@@ -1,4 +1,5 @@
-// APPARITION DES TITRES INTERSECTION
+// APPARITION DES TITRES INTERSECTION_______________________________________________________________
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         entry.target.classList.toggle('visible', entry.isIntersecting);
@@ -10,7 +11,8 @@ document.querySelectorAll('.appear').forEach(element => {
 });
 
 
-// INITIALISATION DE SWIPER CARROUSEL COVERFLOW
+// INITIALISATION DE SWIPER CARROUSEL COVERFLOW_______________________________________________________
+
 document.addEventListener("DOMContentLoaded", function () {
     const swiper = new Swiper('.swiper-container', {
         loop: true, // Permet de faire défiler de manière infinie
@@ -33,7 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
     swiper.slideTo(0);
 });
 
-// JS DU PARRALAX DES NUAGES 
+// JS DU PARRALAX DES NUAGES _________________________________________________________________________
+
 const placeSection = document.getElementById("place");
 const bigCloud = placeSection.querySelector(".big_cloud");
 const littleCloud = placeSection.querySelector(".little_cloud");
@@ -48,18 +51,17 @@ window.addEventListener("scroll", () => {
   littleCloud.style.transform = `translateX(${posX}px)`;
 });
 
-// FONTIONNALITÉ POUR LE MENU BURGER 
+// FONTIONNALITÉ POUR LE MENU BURGER __________________________________________________________
 
 (function($) {
-    $(".burger-open").click(function () { /* contient les 3 lignes active ou cache le menu*/
-    console.log("burger-trigger cliqué");
-    $(".burger-content").toggleClass("open");/* active le menu burger */
-    $(".burger-icon").toggleClass("close"); /* croix quan le menu ouvert */
-  });
-  $("a").click(function () {
-    if ($(".burger-content").hasClass("open")) {
-      $(".burger-content").removeClass("open");
-      $(".burger-icon").removeClass("close");
-    }
-  });    
+    $(".burger-open").on("click", function () {
+        console.log("burger-trigger cliqué");
+        $(".burger-content, .burger-icon").toggleClass("open close");
+    });
+
+    $(".menu-items a").on("click", function () {
+        $(".burger-content, .burger-icon").removeClass("open close");
+    });
 })(jQuery);
+
+
